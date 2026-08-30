@@ -1,0 +1,304 @@
+.contact {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 100px 10%;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background: #080808;
+
+  color: white;
+}
+
+.glow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -150px;
+  top: 20%;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 120px;
+
+  align-items: center;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.left {
+  max-width: 650px;
+}
+
+.label {
+  display: inline-block;
+
+  margin-bottom: 25px;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 4px;
+
+  color: #666;
+}
+
+.left h1 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+
+  line-height: 0.95;
+
+  letter-spacing: -4px;
+}
+
+.left h1 span {
+  display: block;
+
+  color: #666;
+}
+
+.left p {
+  max-width: 500px;
+
+  margin: 35px 0;
+
+  color: #888;
+
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+}
+
+.email {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-top: 50px;
+}
+
+.email span {
+  font-size: 0.7rem;
+
+  letter-spacing: 3px;
+
+  color: #555;
+}
+
+.email a {
+  color: #ddd;
+
+  text-decoration: none;
+
+  font-size: 1rem;
+
+  transition: color 0.3s ease;
+}
+
+.email a:hover {
+  color: white;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 30px;
+
+  padding: 40px;
+
+  border: 1px solid #222;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  backdrop-filter: blur(10px);
+}
+
+.inputGroup {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.inputGroup label {
+  font-size: 0.75rem;
+
+  letter-spacing: 1px;
+
+  color: #777;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 15px 0;
+
+  border: none;
+
+  border-bottom: 1px solid #333;
+
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 1rem;
+
+  transition: border-color 0.3s ease;
+}
+
+.inputGroup textarea {
+  resize: vertical;
+
+  min-height: 120px;
+}
+
+.inputGroup input::placeholder,
+.inputGroup textarea::placeholder {
+  color: #444;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border-color: white;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.submit {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 10px;
+
+  padding: 17px 24px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  background: white;
+
+  color: black;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.submit span {
+  font-size: 1.3rem;
+
+  transition: transform 0.3s ease;
+}
+
+.submit:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.12);
+}
+
+.submit:hover span {
+  transform: translateX(5px);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .contact {
+    padding: 80px 7%;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+  .left h1 {
+    font-size: clamp(3rem, 10vw, 5rem);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+  .contact {
+    padding: 70px 6%;
+  }
+
+  .left h1 {
+    font-size: 3rem;
+
+    letter-spacing: -2px;
+  }
+
+  .left p {
+    font-size: 0.95rem;
+  }
+
+  .form {
+    padding: 25px;
+  }
+}

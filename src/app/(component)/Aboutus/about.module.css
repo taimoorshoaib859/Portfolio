@@ -1,0 +1,582 @@
+.aboutPage {
+  background: #080808;
+  color: #ffffff;
+
+  height: 100vh;
+  overflow-y: auto;
+
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.aboutPage::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+.section {
+  position: relative;
+
+  min-height: 100vh;
+  height: 100vh;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 10%;
+
+  box-sizing: border-box;
+}
+
+.sectionInner {
+  width: 100%;
+  max-width: 1400px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.heroGlow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -150px;
+  top: 10%;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  filter: blur(80px);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1000px;
+
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 25px;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  color: #888;
+}
+
+.heroContent h1 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 8vw, 8rem);
+
+  line-height: 0.95;
+
+  letter-spacing: -5px;
+
+  font-weight: 700;
+}
+
+.heroContent h1 span {
+  display: block;
+
+  background: linear-gradient(90deg, #ffffff, #777777);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroContent p {
+  max-width: 650px;
+
+  margin: 35px auto 0;
+
+  font-size: 1.15rem;
+
+  line-height: 1.8;
+
+  color: #999;
+}
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.heroButtons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 40px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 14px 28px;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.primaryButton {
+  background: #ffffff;
+
+  color: #000000;
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
+}
+
+.secondaryButton {
+  border: 1px solid #333;
+
+  color: #ffffff;
+}
+
+.secondaryButton:hover {
+  border-color: #666;
+
+  background: #151515;
+}
+
+/* =========================
+   SCROLL INDICATOR
+========================= */
+
+.scrollIndicator {
+  position: absolute;
+
+  bottom: 30px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: #555;
+}
+
+.scrollIndicator span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+/* =========================
+   SECTION LABEL
+========================= */
+
+.sectionLabel {
+  margin-bottom: 45px;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 3px;
+
+  color: #555;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skillsHeader {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: end;
+
+  gap: 50px;
+
+  margin-bottom: 50px;
+}
+
+.skillsHeader h2 {
+  margin: 0;
+
+  font-size: clamp(3rem, 5vw, 5rem);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+}
+
+.skillsHeader h2 span {
+  color: #666;
+}
+
+.skillsHeader p {
+  max-width: 400px;
+
+  margin: 0;
+
+  color: #888;
+
+  line-height: 1.7;
+}
+
+.skillsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  border-top: 1px solid #222;
+  border-left: 1px solid #222;
+}
+
+.skillCard {
+  position: relative;
+
+  min-height: 190px;
+
+  padding: 35px;
+
+  border-right: 1px solid #222;
+  border-bottom: 1px solid #222;
+
+  transition: background 0.4s ease;
+}
+
+.skillCard:hover {
+  background: #111;
+}
+
+.number {
+  display: block;
+
+  margin-bottom: 25px;
+
+  color: #555;
+
+  font-size: 0.8rem;
+}
+
+.skillCard h3 {
+  margin: 0 0 12px;
+
+  font-size: 1.4rem;
+}
+
+.skillCard p {
+  max-width: 500px;
+
+  margin: 0;
+
+  line-height: 1.6;
+
+  color: #777;
+}
+/* =========================
+   TECHNOLOGIES
+========================= */
+
+.technologies {
+  border-top: 1px solid #161616;
+}
+
+.techHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+
+  gap: 60px;
+
+  margin-bottom: 60px;
+}
+
+.techHeader h2 {
+  margin: 0;
+
+  font-size: clamp(3rem, 5vw, 5rem);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+}
+
+.techHeader h2 span {
+  color: #666;
+}
+
+.techHeader p {
+  max-width: 420px;
+
+  margin: 0;
+
+  color: #777;
+
+  line-height: 1.7;
+}
+
+.techList {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid #222;
+  border-left: 1px solid #222;
+}
+
+.techList div {
+  padding: 30px;
+
+  border-right: 1px solid #222;
+  border-bottom: 1px solid #222;
+
+  font-size: 1.1rem;
+  font-weight: 500;
+
+  color: #aaa;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+.techList div:hover {
+  color: #fff;
+
+  background: #111;
+
+  padding-left: 40px;
+}
+/* =========================
+   STORY
+========================= */
+
+.storyGrid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 100px;
+}
+
+.storyGrid h2 {
+  margin: 0;
+
+  font-size: clamp(3rem, 5vw, 5.5rem);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+}
+
+.storyGrid h2 span {
+  color: #666;
+}
+
+.storyText {
+  max-width: 600px;
+}
+
+.storyText p {
+  margin: 0 0 25px;
+
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+
+  color: #999;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+  text-align: center;
+
+  border-top: 1px solid #161616;
+}
+
+.ctaGlow {
+  position: absolute;
+
+  width: 600px;
+  height: 300px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+}
+
+.cta h2 {
+  margin: 0;
+
+  font-size: clamp(4rem, 8vw, 8rem);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+}
+
+.cta h2 span {
+  color: #666;
+}
+
+.cta p {
+  max-width: 500px;
+
+  margin: 35px auto;
+
+  color: #777;
+
+  line-height: 1.7;
+}
+
+.ctaButton {
+  display: inline-block;
+
+  padding: 16px 32px;
+
+  border-radius: 50px;
+
+  background: #ffffff;
+
+  color: #000000;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.15);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+  .section {
+    padding: 70px 7%;
+  }
+
+  .heroContent h1 {
+    letter-spacing: -3px;
+  }
+
+  .skillsHeader {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 25px;
+  }
+
+  .storyGrid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+  .heroButtons {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 180px;
+
+    text-align: center;
+  }
+
+  .heroContent h1 {
+    font-size: 3rem;
+  }
+
+  .heroContent p {
+    font-size: 1rem;
+  }
+
+  .skillsHeader h2 {
+    font-size: 3rem;
+  }
+
+  .skillCard {
+    padding: 25px;
+
+    min-height: 160px;
+  }
+
+  .cta h2 {
+    font-size: 4rem;
+
+    letter-spacing: -3px;
+  }
+}

@@ -1,0 +1,513 @@
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  min-height: 650px;
+
+  overflow: hidden;
+
+  background: #050505;
+
+  color: white;
+}
+
+/* =========================
+   SLIDES
+========================= */
+
+.slide {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 1.2s ease,
+    visibility 1.2s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.sliderImage {
+  object-fit: cover;
+
+  transform: scale(1.05);
+
+  transition: transform 7s ease;
+}
+
+.slide.active .sliderImage {
+  transform: scale(1);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.62) 35%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 50%;
+  left: 9%;
+
+  width: min(680px, 70%);
+
+  transform: translateY(-42%);
+
+  opacity: 0;
+
+  transition:
+    opacity 0.9s ease,
+    transform 1s ease;
+}
+
+.slide.active .content {
+  opacity: 1;
+
+  transform: translateY(-50%);
+}
+
+/* =========================
+   LABEL
+========================= */
+
+.label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 28px;
+
+  color: #aaa;
+
+  font-size: 0.68rem;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+.label span {
+  width: 32px;
+
+  height: 1px;
+
+  background: #aaa;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.content h1 {
+  margin: 0;
+
+  max-width: 700px;
+
+  font-size: clamp(3rem, 5.3vw, 5.7rem);
+
+  line-height: 0.98;
+
+  letter-spacing: -3px;
+
+  font-weight: 400;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.content p {
+  max-width: 500px;
+
+  margin: 28px 0 0;
+
+  color: #aaa;
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  margin-top: 38px;
+
+  padding: 7px 8px 7px 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(12px);
+
+  color: white;
+
+  font-size: 0.85rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ctaIcon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  color: black;
+
+  font-size: 1.1rem;
+
+  transition: transform 0.3s ease;
+}
+
+.cta:hover {
+  background: rgba(255, 255, 255, 0.15);
+
+  border-color: white;
+
+  transform: translateY(-3px);
+}
+
+.cta:hover .ctaIcon {
+  transform: rotate(45deg);
+}
+
+/* =========================
+   ARROWS
+========================= */
+
+.arrow {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 50%;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.2);
+
+  backdrop-filter: blur(8px);
+
+  color: white;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  opacity: 0.45;
+
+  transform: translateY(-50%);
+
+  transition:
+    opacity 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.arrow:hover {
+  opacity: 1;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prev {
+  left: 28px;
+}
+
+.next {
+  right: 28px;
+}
+
+/* =========================
+   BOTTOM
+========================= */
+
+.bottom {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 9%;
+  right: 9%;
+
+  bottom: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+/* =========================
+   COUNTER
+========================= */
+
+.counter {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  color: #666;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 2px;
+}
+
+.current {
+  color: white;
+}
+
+.divider {
+  width: 45px;
+
+  height: 1px;
+
+  background: #555;
+}
+
+/* =========================
+   DOTS
+========================= */
+
+.dots {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background: #555;
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.activeDot {
+  width: 28px;
+
+  background: white;
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+.scroll {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #666;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 2px;
+}
+
+.scroll span {
+  color: white;
+
+  font-size: 1rem;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress {
+  position: absolute;
+
+  z-index: 10;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: 2px;
+
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.progressBar {
+  width: 0;
+  height: 100%;
+
+  background: white;
+
+  animation: progress 6s linear forwards;
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .content {
+    left: 7%;
+
+    width: 75%;
+  }
+
+  .bottom {
+    left: 7%;
+    right: 7%;
+  }
+
+  .content h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+  }
+
+  .scroll {
+    display: none;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .content {
+    left: 6%;
+
+    width: 88%;
+  }
+
+  .content h1 {
+    font-size: clamp(2.6rem, 11vw, 4rem);
+
+    letter-spacing: -2px;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+
+    max-width: 380px;
+  }
+
+  .label {
+    font-size: 0.58rem;
+
+    letter-spacing: 2px;
+  }
+
+  .arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .prev {
+    left: 14px;
+  }
+
+  .next {
+    right: 14px;
+  }
+
+  .bottom {
+    left: 6%;
+    right: 6%;
+
+    bottom: 25px;
+  }
+}
